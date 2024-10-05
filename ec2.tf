@@ -5,6 +5,7 @@ resource "aws_instance" "ec2_pub1" {
   key_name                    = "cloud2"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.allow_ssh_http.id]
+  user_data                   = file("command.sh")
 
   tags = {
     Name = "ec2_pub1"
@@ -18,6 +19,7 @@ resource "aws_instance" "ec2_pub2" {
   key_name                    = "cloud2"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.allow_ssh_http.id]
+  user_data                   = file("command.sh")
 
   tags = {
     Name = "ec2_pub2"
