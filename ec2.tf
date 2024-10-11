@@ -5,7 +5,7 @@ resource "aws_instance" "ec2_pub1" {
   key_name                    = "cloud2"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.allow_ssh_http.id]
-  user_data                   = file("command.sh")
+  user_data                   = templatefile("command.sh", { title = "Nginx EC2 1 - Jose Lopez - Cloud 2" })
 
   tags = {
     Name = "ec2_pub1"
@@ -19,7 +19,7 @@ resource "aws_instance" "ec2_pub2" {
   key_name                    = "cloud2"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.allow_ssh_http.id]
-  user_data                   = file("command.sh")
+  user_data                   = templatefile("command.sh", { title = "Nginx EC2 2 - Jose Lopez - Cloud 2" })
 
   tags = {
     Name = "ec2_pub2"
